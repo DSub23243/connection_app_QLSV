@@ -1,4 +1,7 @@
+import 'package:connection/models/profile.dart';
+import 'package:connection/providers/loginviewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainViewModel with ChangeNotifier {
   static final MainViewModel _instance = MainViewModel._internal();
@@ -26,5 +29,13 @@ class MainViewModel with ChangeNotifier {
     activemenu = index;
     menustatus = 0;
     notifyListeners();
+  }
+
+  void logOut() async {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Profile().initialize();
+      loginViewModel().status = 0;
+      notifyListeners();
+    });
   }
 }

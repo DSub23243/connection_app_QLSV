@@ -1,5 +1,6 @@
 import 'package:connection/models/student.dart';
 import 'package:connection/models/user.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile {
@@ -16,6 +17,14 @@ class Profile {
   Future<void> initialize() async {
     _pref = await SharedPreferences.getInstance();
     token = "";
+  }
+
+  Future<void> logout() async {
+    await _pref.remove("username");
+    await _pref.remove("password");
+    token = "";
+    student = Student();
+    user = User();
   }
 
   Future<void> setUsernameAndPassword(String username, String password) async {

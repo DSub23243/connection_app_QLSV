@@ -1,3 +1,4 @@
+import 'package:connection/models/profile.dart';
 import 'package:connection/ui/AppConstant.dart';
 import 'package:connection/ui/Page_forgot.dart';
 import 'package:connection/ui/page_register.dart';
@@ -17,6 +18,7 @@ class pageLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewmodel = Provider.of<loginViewModel>(context);
     final size = MediaQuery.of(context).size;
+    print(viewmodel.status);
     if (viewmodel.status == 3) {
       Future.delayed(
         Duration.zero,

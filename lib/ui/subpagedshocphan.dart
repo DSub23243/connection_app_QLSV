@@ -46,10 +46,10 @@ class _SubPageDshocphanState extends State<SubPageDshocphan> {
                   itemCount: dataList.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      height: 180, // Điều chỉnh chiều cao của mỗi khối
+                      height: 180,
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 219, 58, 0.965),
+                        color: Color.fromRGBO(255, 255, 255, 0.965),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Padding(

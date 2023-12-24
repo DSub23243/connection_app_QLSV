@@ -1,4 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:connection/models/student.dart';
+import 'package:connection/models/user.dart';
 import 'package:connection/providers/mainviewmodel.dart';
 import 'package:connection/providers/menubarviewmodel.dart';
 import 'package:connection/ui/AppConstant.dart';
@@ -12,18 +14,21 @@ import 'package:connection/ui/subpageprofile.dart';
 import 'package:connection/ui/subpagetimkiem.dart';
 import 'package:connection/ui/subpagetintuc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/profile.dart';
 
 class PageMain extends StatelessWidget {
-  static String routename = '/register';
+  static String routename = '/home';
   PageMain({super.key});
   final List<String> menuTitles = [
     'Tin tức',
     "Profile",
     'Danh sách HP',
     'Danh sách lớp',
+    "Đăng xuất",
   ];
 
   final menuBar = MenuItemList();
@@ -46,6 +51,8 @@ class PageMain extends StatelessWidget {
       body = SubPageDshocphan();
     } else if (viewmodel.activemenu == SubPageDslop.idpage) {
       body = SubPageDslop();
+    } else if (viewmodel.activemenu == 4) {
+      viewmodel.logOut();
     }
     menuBar.initialize(menuTitles);
     return Scaffold(

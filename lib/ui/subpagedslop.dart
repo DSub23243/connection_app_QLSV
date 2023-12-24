@@ -88,16 +88,27 @@ class _SubPageDslopState extends State<SubPageDslop> {
                                     ),
                                     Expanded(
                                       flex: 2,
-                                      child: Text(
-                                        textAlign: TextAlign.center,
-                                        dataList[index].first_name,
-                                        style: const TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 7, 22, 231),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                      child: dataList[index].first_name == ""
+                                          ? const Text(
+                                              ".....Trống.....",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 7, 22, 231),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            )
+                                          : Text(
+                                              dataList[index].first_name,
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 7, 22, 231),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
                                     ),
                                   ],
                                 ),
